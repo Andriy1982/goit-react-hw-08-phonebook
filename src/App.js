@@ -1,30 +1,46 @@
 import { Switch, Route } from 'react-router-dom';
 import Container from './component/Container';
 import HomeView from './views/HomeView';
+import LoginView from './views/LoginView';
+import RegisterView from './views/RegisterView';
+import ContactsView from './views/ContactsView';
+import AppBar from './component/AppBar';
 
-export default function App(props) {
+// console.log(HomeView());
+// console.log(LoginView());
+// console.log(RegisterView());
+// console.log(ContactsView());
+
+export default function App() {
   return (
     <Container>
-      {/* <AppBar /> */}
+      <AppBar />
 
       <Switch>
         <Route exact path="/" component={HomeView} />
-        {/* <HomeView />
-        <Route /> */}
-        {/* <Route path="/register" component={RegisterView} />
+        <Route path="/register" component={RegisterView} />
         <Route path="/login" component={LoginView} />
-        <Route path="/todos" component={TodosView} /> */}
+        <Route path="/contacts" component={ContactsView} />
+        {/* <Route exact path="/" />
+        <HomeView />
+        <Route />
+        <Route path="/register" />
+        <RegisterView />
+        <Route />
+        <Route path="/login" />
+        <LoginView/>
+        <Route />
+        <Route path="/contacts" />
+        <ContactsView/>
+        <Route /> */}
       </Switch>
     </Container>
   );
 }
 
-// function App() {
-//   return (
-//     <div>
-//       <h1>Hello World</h1>
-//     </div>
-//   );
-// }
-
-// export default App;
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );

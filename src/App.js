@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Container from './component/Container';
 import HomeView from './views/HomeView';
@@ -26,22 +26,24 @@ export default function App() {
       <AppBar />
 
       <Switch>
-        <Route exact path="/" component={HomeView} />
+        <Suspense fallback={<p>Download ...</p>}>
+          {/* <Route exact path="/" component={HomeView} />
         <Route path="/register" component={RegisterView} />
         <Route path="/login" component={LoginView} />
-        <Route path="/contacts" component={ContactsView} />
-        {/* <Route exact path="/" />
-        <HomeView />
-        <Route />
-        <Route path="/register" />
-        <RegisterView />
-        <Route />
-        <Route path="/login" />
-        <LoginView/>
-        <Route />
-        <Route path="/contacts" />
-        <ContactsView/>
-        <Route /> */}
+        <Route path="/contacts" component={ContactsView} /> */}
+          <Route exact path="/">
+            <HomeView />
+          </Route>
+          <Route path="/register">
+            <RegisterView />
+          </Route>
+          <Route path="/login">
+            <LoginView />
+          </Route>
+          <Route path="/contacts">
+            <ContactsView />
+          </Route>
+        </Suspense>
       </Switch>
     </Container>
   );

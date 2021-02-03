@@ -1,5 +1,5 @@
 import { Switch } from 'react-router-dom';
-import { Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from './redux/auth';
 import Container from './component/Container';
@@ -10,11 +10,6 @@ import ContactsView from './views/ContactsView';
 import AppBar from './component/AppBar';
 import PrivateRoute from './component/PrivateRoute';
 import PublicRoute from './component/PublicRoute';
-
-// console.log(HomeView());
-// console.log(LoginView());
-// console.log(RegisterView());
-// console.log(ContactsView());
 
 export default function App() {
   const dispatch = useDispatch();
@@ -28,11 +23,6 @@ export default function App() {
       <AppBar />
 
       <Switch>
-        {/* <Suspense fallback={<p>Download ...</p>}> */}
-        {/* <Route exact path="/" component={HomeView} />
-        <Route path="/register" component={RegisterView} />
-        <Route path="/login" component={LoginView} />
-        <Route path="/contacts" component={ContactsView} /> */}
         <PublicRoute exact path="/">
           <HomeView />
         </PublicRoute>
@@ -45,15 +35,7 @@ export default function App() {
         <PrivateRoute path="/contacts">
           <ContactsView />
         </PrivateRoute>
-        {/* </Suspense> */}
       </Switch>
     </Container>
   );
 }
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );

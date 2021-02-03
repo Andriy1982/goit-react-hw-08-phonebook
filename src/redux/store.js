@@ -30,7 +30,6 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    // auth: authReducer,
     contacts: contactsReducer,
   },
   middleware,
@@ -38,14 +37,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-// import { configureStore } from '@reduxjs/toolkit';
-// import { contacts, filter, isLoading } from './contacts/contacts-reducer';
-
-// export const store = configureStore({
-//   reducer: {
-//     contacts,
-//     filter,
-//     isLoading,
-//   },
-// });

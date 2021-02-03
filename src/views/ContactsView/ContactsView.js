@@ -4,24 +4,27 @@ import Filter from '../../component/Filter';
 import Contacts from '../../component/Contacts';
 import { useDispatch, useSelector } from 'react-redux';
 import { contactsSelectors, contactsOperation } from '../../redux/contacts';
+import style from './ContactsView.module.css';
 
 export default function ContactsView(props) {
   const contacts = useSelector(contactsSelectors.getContacts);
   const dispatch = useDispatch();
-  // const contacts = useSelector(state => state.contacts.items)
-  // console.log(contacts);
 
   useEffect(() => {
     dispatch(contactsOperation.fetchContacts());
   }, [dispatch]);
 
   return (
-    <section className="section">
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      {contacts?.length > 0 && <Filter />}
-      {contacts?.length > 0 && <Contacts />}
+    <section className={style.section}>
+      <div className={style.wrap}>
+        <h1>Phonebook</h1>
+        <ContactForm />
+      </div>
+      <div className={style.wrap}>
+        <h2>Contacts</h2>
+        {contacts?.length > 0 && <Filter />}
+        {contacts?.length > 0 && <Contacts />}
+      </div>
     </section>
   );
 }

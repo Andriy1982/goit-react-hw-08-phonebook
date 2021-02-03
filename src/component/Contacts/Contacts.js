@@ -6,7 +6,6 @@ import { List, ListItem } from './ContactsStyledComponent';
 function Contacts() {
   const contacts = useSelector(contactsSelectors.visibleContacts);
   const dispatch = useDispatch();
-  // console.log(contacts[0].name.toLowerCase().includes('u'.toLowerCase()));
 
   return (
     <List>

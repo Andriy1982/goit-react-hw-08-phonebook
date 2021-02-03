@@ -8,8 +8,6 @@ import IconButton from '@material-ui/core/IconButton';
 export default function UserMenu() {
   const dispatch = useDispatch();
   const email = useSelector(authSelectors.getUserEmail);
-  console.log(email);
-  // const avatar = defaultAvatar;
 
   return (
     <div className={style.container}>
@@ -17,16 +15,11 @@ export default function UserMenu() {
         aria-label="account of current user"
         aria-controls="menu-appbar"
         aria-haspopup="true"
-        // onClick={handleMenu}
         color="inherit"
       >
         <AccountCircle />
       </IconButton>
-      {/* <img src={avatar} alt="" width="32" className={style.avatar} /> */}
-      <span className={style.name}>
-        {/* Добро пожаловать, */}
-        {email}
-      </span>
+      <span className={style.name}>{email}</span>
       <button type="button" onClick={() => dispatch(authOperations.logOut())}>
         Выйти
       </button>

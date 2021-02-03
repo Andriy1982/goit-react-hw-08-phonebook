@@ -9,7 +9,7 @@ export default function ContactsView(props) {
   const contacts = useSelector(contactsSelectors.getContacts);
   const dispatch = useDispatch();
   // const contacts = useSelector(state => state.contacts.items)
-  console.log(contacts);
+  // console.log(contacts);
 
   useEffect(() => {
     dispatch(contactsOperation.fetchContacts());

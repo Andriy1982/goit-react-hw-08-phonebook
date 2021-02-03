@@ -7,8 +7,6 @@ import { store, persistor } from './redux/store';
 import './index.css';
 import App from './App';
 
-console.log(store);
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -21,10 +19,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 );
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//       <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
